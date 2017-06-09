@@ -1,0 +1,26 @@
+def main():
+
+    print("Please think of a number between 0 and 100!")
+    low = 0
+    high = 100
+    guess = (high - low) / 2
+    while True:
+        print("Is your secret number", str(guess) + "?")
+        indicate = input("Enter 'h' to indicate the guess is too high. "
+                         "Enter 'l' to indicate the number is too low. "
+                         "Enter 'c' to indicate I guessed correctly.")
+        if indicate.lower() == 'h':
+            high = guess
+            guess = int((high + low) // 2)
+        elif indicate.lower() == 'l':
+            low = guess
+            guess = int((high + low) // 2)
+        elif indicate.lower() == 'c':
+            print("Game over. Your secret number is ", guess)
+            break
+        else:
+            print("Sorry, I didn't understand your input.")
+
+
+if __name__ == '__main__':
+    main()
